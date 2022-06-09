@@ -1,0 +1,93 @@
+{
+  "name": "newrelic-react-native-agent",
+  "version": "0.0.1-beta.6",
+  "description": "A New Relic Mobile Agent for React Native",
+  "main": "index.js",
+  "scripts": {
+    "prepare:ios": "node ./scripts/prepare-ios.js",
+    "build:pack-ios-bridge": "./modular-build/utils/pack-ios-bridge.sh",
+    "use:npmReadme": "mv 'README.md' 'git.README.md' && mv 'npm.README.md' 'README.md'",
+    "use:gitReadme": "mv 'README.md' 'npm.README.md' && mv 'git.README.md' 'README.md'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collect-coverage",
+    "lint": "eslint ./**/*.js",
+    "lint:fix": "eslint ./**/*.js --fix",
+    "docs:generate": "jsdoc -c jsdoc.json",
+    "prepare": "husky install",
+    "commit": "cz",
+    "build:plugin": "rimraf plugin/build && tsc --build plugin"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-native-promise-rejection-utils)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "keywords": [
+    "new relic",
+    "react-native"
+  ],
+  "author": "New Relic",
+  "license": "New Relic",
+  "homepage": "https://github.com/newrelic/newrelic-react-native-agent#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "commitizen": "^4.2.4",
+    "react-native-promise-rejection-utils": "0.0.1",
+    "@expo/config-plugins": "^4.0.14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^17.0.8",
+    "aws-sdk": "^2.1048.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^24.8.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "docdash": "^1.2.0",
+    "edit-json-file": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.0",
+    "jest": "^24.8.0",
+    "jsdoc": "^3.6.7",
+    "react-native": "^0.63.2",
+    "shelljs": "^0.8.4",
+    "unzipper": "^0.10.11",
+    "ansi-regex": ">=5.0.1",
+    "marked": ">=4.0.10",
+    "markdown-it": ">=12.3.2",
+    "node-notifier": ">=8.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "sdkVersions": {
+    "ios": {
+      "newrelic": "7.3.5"
+    },
+    "android": {
+      "newrelic": "6.5.0"
+    }
+  }
+}
