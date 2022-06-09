@@ -38,10 +38,7 @@ public class NRMModularAgentModule extends ReactContextBaseJavaModule {
         if (appKey != null) {
             Log.w("NRMA", "calling start agent for RN bridge is deprecated. The agent automatically starts on creation.");
 
-
-
             NewRelic.withApplicationToken(appKey)
-                    .withApplicationFramework(ApplicationFramework.ReactNative)
                     .withCrashReportingEnabled(true)
                     .start(reactContext);
 
